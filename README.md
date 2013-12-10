@@ -69,7 +69,7 @@ In a generic sense - as with regards to "the model illustated for its pragmatic 
 
 ### Integration onto JCR
 
-The primary design goal of the GProj Resource Lab is to define a CORBA model onto the ModeShape JCR implementation. Abstractly, this design is developed in considerstion a design principle, stated, _"Do not reinvent the wheel, when the wheel does not need to be reinvented,"_ - it being a _software project_, not a _Mars rover design_, and not a _starship design_, _per se_. So, in all _"Cheerful red-shirt style,"_....
+The primary design goal of the GProj Resource Lab is to define a CORBA model onto the ModeShape JCR implementation. (Ed. note: Abstractly, this design is developed in considerstion a design principle, stated, _"Do not reinvent the wheel, when the wheel does not need to be reinvented,"_ - it being a _software project_, not a _Mars rover design_, and not a _starship design_, _per se_.)
 
 
 The GProj Resource Lab design will focus, technically, on three primary  project tasks:
@@ -135,3 +135,4 @@ The text of the comment from the [gproj-project-manage][gproj-project-manage] _R
 [postgres]: http://www.postgresql.org/
 [osonline]: https://www.openshift.com/products/online
 [archetype-oo-servlet-manage]: https://github.com/GazeboHub/archetype-oso-servlet-manage
+[mojang]: https://mojang.com/
