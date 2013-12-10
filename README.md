@@ -125,7 +125,7 @@ The text of the comment from the [gproj-project-manage][gproj-project-manage] _R
 [liferay]: http://www.liferay.com/
 [uml]: http://www.uml.org/
 [sysml]: http://www.omgsysml.org/
-[portal]: http://protal-gproj.rhcloud.com/
+[portal]: http://portal-gproj.rhcloud.com/
 [ghPages]: http://pages.github.com/
 [gproj-io]: http://gazebohub.github.io/
 [jgit]: http://www.eclipse.org/jgit/
