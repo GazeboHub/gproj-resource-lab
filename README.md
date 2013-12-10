@@ -99,10 +99,47 @@ Each of those _points_ denotes a _work area_, centering around a _concept_ if no
 
 In regards to the third of those project tasks, some specific focus should be made with regards to the roles of a JCR server in managing _versionable nodes_ in JCR -- cf. [JSR-283][jsr283], clause 15, _Versioning_. That focus may be made not only in considerstion of the baseline versioning model defined in JCR 2.0, but furthermore in considerstion of the _read-only_ Git _connector_ for ModeShape -- cf. [ModeShape Guide][modeshape-guide], subclause _[Git connector][modeshape-git-conn]_ -- and the [JGit][jgit] API -- as towards two ideal outcomes:
 
-* Developing a methodology for read/write access onto a central Git repository, via JCR 2.0 -- essentially, in regarding a JCR _node graph_ as representing _the_ filesystem interacting with a remote JCR repository. In this task, [JGit][jgit] may be used as a sort of _pluggable SCCM proxy_ via JCR. (Ed. note: UML models may accompany this design goal. A "First goal," in that, may be to develop a set of UML models and accompanying BPMN diagrams, illustrating application of individual _Git commands_ in an abstract revision managememt process in Git. "Thus, towards platform agnosticism." This task may also be accompanied with extension of the JCR node types defined by the [ModeShape][modeshape] Git connector)
+* _**"Upstream Git Synchronization"**_ -- Developing a methodology for read/write access onto a central Git repository, via JCR 2.0 -- essentially, in regarding a JCR _node graph_ as representing _the_ filesystem interacting with a remote JCR repository. In this task, [JGit][jgit] may be used as a sort of _pluggable SCCM proxy_ via JCR. (Ed. note: UML models may accompany this design goal. A "First goal," in that, may be to develop a set of UML models and accompanying BPMN diagrams, illustrating application of individual _Git commands_ in an abstract revision managememt process in Git. "Thus, towards platform agnosticism." This task may also be accompanied with extension of the JCR node types defined by the [ModeShape][modeshape] Git connector)
 
-* Developing a _"Git-like" interface_ onto JCR _full_ repository versioning, including full support for _branching_ and _merging_ within JCR _node graphs_ (cf. [JSR-283][jsr283], subclause 3.13.1.5, _"Simple and Full Versioning"_) This task may be accompanied with the development of [Eclipse IDE][eclipse] extensions, including an _[IResource][IResource]_ model onto JCR, a _Server Type_ for remote JCR connections, a _Team Provider_ onto JCR _versioning_ and such JCR node types as may be suitable for modeling of [Eclipse IDE][eclipse] _workspace_ and _project_ _metadata files_ and _metadata properties_
+* _**"JCR like Git"**_ -- Developing a _"Git-like" interface_ onto JCR _full_ repository versioning, including full support for _branching_ and _merging_ within JCR _node graphs_ (cf. [JSR-283][jsr283], subclause 3.13.1.5, _"Simple and Full Versioning"_) This task may be accompanied with the development of [Eclipse IDE][eclipse] extensions, including an _[IResource][IResource]_ model onto JCR, a _Server Type_ for remote JCR connections, a _Team Provider_ onto JCR _versioning_ and such JCR node types as may be suitable for modeling of [Eclipse IDE][eclipse] _workspace_ and _project_ _metadata files_ and _metadata properties_
 
+### Further Applications of ModeShape
+
+(Sidebar: Note the Infinispan support inclided in ModeShape, "plus plus")
+
+#### ModeShape OSGi Deployment
+
+(probably some existing work, in this regards. "Look it up." Use case: towards using Eclipse platform components for developing a stand-alone, modular, in effect multidisciplinary desktop tool framework extensible onto distinct creative workflows, for creative workflow support, one _Resource Lab Desktop_. Note, furthermore, _ModeShape is not Eclipse Equinox_. The latter is the OSGi runtime developed in the Eclipse platform. The former is the JCR implementation around which GProj ResourceLab JCR extensions shall be developed, albeit ideally in as portable a manner as possible, cf.  Jackrabbit, Adobe _Day_. Also note, Apache Felix as an alternate OSGi framework.)
+
+#### Developing a Project Management Model onto ModeShape
+
+* Permissions model - (note the `jcr:versionManagement` _JCR privilege_. Note, also, PicketLink IDM, as used in GateIn. Kerberos integration for the Eclipse IDE and Eclipse IDE plugins?)
+
+* Tools model: (Eclipse IDE? Resource Lab Desktop? Mobile integration, a _must_.)
+
+#### WebDAV Contexts
+
+(Alternately, **refer to: [ModeShape Sequencers, Built-In](https://docs.jboss.org/author/display/MODE/Built-in+sequencers)**)
+
+**Use Case:** Using ModeShape to synchronize _file nodes_ with mobile thin clients, via the ModeShape _WebDAV service_, provide modular _hooks_ for WebDAV _presentation_, _import_, and _synchronization_ onto the underlying JCR _nodes_ model. (e.g transform the OmniFocus tasks bundle into/from a set of corresponding 'task' nodes; transform iThoughts mindmap into node graph, with links and pictures and so on; transform OmniGraffle diagram into ... SVG nodes?; GoodReader synch with PDF _document library_ context, "with bibtex support"; Textastic synch with project workspaces; something for OpenShift app monitoring support, perhaps, cf. Nagios; etc)
+
+**Work Interface:** ModeShape WebDAV service, cf. _`modeshape-web-jcr-webdav-war-<version>.war`_ (as OSGi bundle?)
+
+**Notes - Planning**
+
+* Those _modular hooks_ may be provided such as to be _installed_ and _activated_ as _OSGi bundles_. (Question: What existing work may there be, planning included, with regards to OSGi _bundling_ of ModeShape? Note also, OSGi bundle distribution models, such as may be represented effectively in the _Eclipse Updates_ API and model. Sidebar - Mobile apps / thin client context: _OSGi and the Android platform?_)
+
+
+#### GProj Resource Labs Testing Platform
+
+**Platform Requirememts:**
+
+* Must provide one or more JCR repositories via ModeShape
+* Must provide the ModeShape WebDAV service
+* May provide a Java web portal implementation, such as _[Jetspeed 2][jetspeed]_, for prototyping of browser-based interaction models onto underlying ModeShape services (_**Note:**_ This may entail a redesign of the `portal-gproj-manage` work area and the underlying _`portal`_ application, namely as for the purpose of developing a Jetspeed portal with the latter - as contrasted to the current design of the application, in which, [Liferay][liferay] has been proposed as the portal framework, in it providing a methodology for _rapid, web-based, web design prototyping_ and _web content management_, as a JSR-286 portal implementation, albeit perhaps in a manner more _resource intensive_ than JetSpeed, on the _server tier_. To furthermore develop a web content management framework integrating OWL ontologies and JCR, onto ModeShape, it may not be unwise to "Start from scratch," in extending the baseline _Java web portal_ framework, in this free/open source software project)
+* Should incorporate features of a Java web application server, such as JBoss AS7 (Concern: Jetspeed on JBoss AS7? Altrnately, Glassfish on OpenShift, "DIY," might not scale. So, "To do," as a prereq to the web portal interface support, JetSpeed on JBoss AS7? Note also, [JetSpeed Deployment Guide](http://portals.apache.org/jetspeed-2/deployguide/), which denotes that JetSpeed makes extensive use of Spring components. "Then," there's OSGi....)
+* Note: [ModeShape WebDAV Server, ModeShape Reference Manual 2.8.3](http://docs.jboss.org/modeshape/2.8.3.Final/manuals/reference/html/web_access.html#webdav_server)
+* **See also:** _[ModeShape and JBoss AS7 and EAP](https://docs.jboss.org/author/display/MODE/ModeShape+and+JBoss+AS7+and+EAP)_, from the [ModeShape Guide][modeshape-guide] (onto newer ModeShape releases). The guide includes [a section on providing the ModeShape WebDAV service via JBoss EAP](https://docs.jboss.org/author/display/MODE/Using+Repositories+with+WebDAV+in+EAP)
 
 ## Endnote: "The Initial Comment"
 
@@ -136,3 +173,5 @@ The text of the comment from the [gproj-project-manage][gproj-project-manage] _R
 [osonline]: https://www.openshift.com/products/online
 [archetype-oo-servlet-manage]: https://github.com/GazeboHub/archetype-oso-servlet-manage
 [mojang]: https://mojang.com/
+[IResource]: http://wiki.eclipse.org/Resources
+[jetspeed]: http://portals.apache.org/jetspeed-2
