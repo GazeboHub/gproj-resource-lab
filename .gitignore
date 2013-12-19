@@ -11,3 +11,4 @@
 /target
 # Eclipse IDE
 .settings
+/.classpath
