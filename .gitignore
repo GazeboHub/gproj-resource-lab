@@ -8,6 +8,6 @@
 *.war
 *.ear
 # Maven
-target
+/target
 # Eclipse IDE
 .settings
