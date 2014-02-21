@@ -10,7 +10,7 @@ Resource Laboratory Framework - Gazebo Project
 > -- JacORB 3.1 Programming Guide, section 1.1, _A Brief CORBA introduction_
 
 
-## Project History - Gazebo Project (GProj) Shared Project Management Resources
+## Project History - Gazebo Project (GProj) Web Workspace, Initial Branch
 
 The GProj Recource Lab _work area_ was initialized for purpose of extending on an _abstract workspace_ concept denoted in the _README_ file of the _GProj  Shared Project Management Resources_ Work Area, as represented in the [gproj-project-manage][gproj-project-manage] _source tree_. In summary, the [gproj-project-manage][gproj-project-manage] source tree was designed so as to serve as a _shared submodule_ of GProj projects, initially in a context of projects using Git _submodules_ in addition to a submodule representing the [gproj-project-manage][gproj-project-manage] _source tree_. The [gproj-project-manage][gproj-project-manage] _source tree_, in itself, provides a public domain Git _hook_ script for purpose of preventing a _synzhronization error_, such as would be possible in the workflow of a project using Git _submodules_. That _source tree_ may provide further shared resources for GProj development - such as for sharing of convenient _external tool definitions_ for use in the [Eclipse IDE][eclipse].
 
